@@ -52,6 +52,8 @@ module OmniAuth
       def user_data
         @data ||=
           @access_token.get("https://www.googleapis.com/userinfo/email?alt=json").parsed
+        Rails.logger.debug(@data.inspect) if defined? Rails
+        @data
       end
 
     end
